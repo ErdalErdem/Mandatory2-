@@ -1,3 +1,8 @@
+import { Router } from 'express';
+import bcrypt from 'bcrypt';
+const router = Router();
+import db from '../database/connection.js';
+
 // GET all users
 router.get('/api/users', async (req, res) => {
     try {

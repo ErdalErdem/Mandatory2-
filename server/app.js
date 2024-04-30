@@ -7,6 +7,7 @@ import cors from "cors";
 
 const app = express();
 
+
 app.use(cors({
     credentials: true,
     origin: true
@@ -14,7 +15,17 @@ app.use(cors({
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(helmet())
+app.use(helmet());
+
+
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } 
+}));
+
 
 const authRateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10min
@@ -38,6 +49,12 @@ app.use(userRouter);
 
 import xssRouter from './routers/xssRouter.js';
 app.use(xssRouter);
+
+import sessionRouter from './routers/sessionRouter.js';
+app.use(sessionRouter);
+
+import authRouter from './routers/authRouter.js';
+app.use(authRouter);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
