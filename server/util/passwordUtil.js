@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 
 const saltRounds = 14;
-const plaintextPassword = "Hunter123";
+const plaintextPassword = "123";
 const passwordHash = "$2b$14$0lPQTl8OvU/PEoUkxfH9M./lv..pm24PrPZm/uiGIkaCcOTqYOdXi";
 
 // /signup /forgotpassword

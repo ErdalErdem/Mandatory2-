@@ -27,9 +27,9 @@ async function setupDatabase() {
         // Populate the table with sample data if in delete mode
         if (deleteMode) {
             console.log("Inserting sample data...");
-            await db.run(`INSERT INTO Users (name, email, password) VALUES ('John Doe', 'john@example.com', 'hashed_password_here')`);
-            await db.run(`INSERT INTO Users (name, email, password) VALUES ('Jane Smith', 'jane@example.com', 'hashed_password_here')`);
-            await db.run(`INSERT INTO Users (name, email, password) VALUES ('Alice Johnson', 'alice@example.com', 'hashed_password_here')`);
+            await db.run(`INSERT INTO Users (name, email, password) VALUES ('John Doe', 'john@example.com', '$2b$14$1pNSNCJTq3K6hx.MUhkQtOs1tTmc6SBfHV/.dcUkJ/rh//1QB7GxO')`);
+            await db.run(`INSERT INTO Users (name, email, password) VALUES ('Jane Smith', 'jane@example.com', '$2b$14$1pNSNCJTq3K6hx.MUhkQtOs1tTmc6SBfHV/.dcUkJ/rh//1QB7GxO')`);
+            await db.run(`INSERT INTO Users (name, email, password) VALUES ('Alice Johnson', 'alice@example.com', '$2b$14$1pNSNCJTq3K6hx.MUhkQtOs1tTmc6SBfHV/.dcUkJ/rh//1QB7GxO')`);
         }
 
         console.log("Database setup completed successfully.");
