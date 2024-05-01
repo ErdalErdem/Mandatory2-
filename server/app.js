@@ -1,12 +1,11 @@
 import 'dotenv/config';
+import express from 'express';
 import session from 'express-session';
 import { rateLimit } from 'express-rate-limit';
-import express from 'express';
 import helmet from 'helmet';
 import cors from "cors";
 
 const app = express();
-
 
 app.use(cors({
     credentials: true,
@@ -17,14 +16,13 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(helmet());
 
-
-
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } 
+    cookie: { secure: false }
 }));
+
 
 
 const authRateLimiter = rateLimit({

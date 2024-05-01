@@ -6,7 +6,7 @@ import db from '../database/connection.js';
 // GET all users
 router.get('/api/users', async (req, res) => {
     try {
-        const result = await db.all('SELECT id, name, email FROM Users'); // Avoid sending passwords
+        const result = await db.all('SELECT * FROM Users'); // Avoid sending passwords
         res.send({ data: result });
     } catch (error) {
         console.error('Database error:', error);
