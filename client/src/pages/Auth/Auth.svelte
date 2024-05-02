@@ -7,6 +7,6 @@
   </script>
 
 <div class="unauthorized-container">
-    <div class="message">Oops! You are not authorized to view this page.</div>
-    <button on:click={goHome}>Go Back to Homepage</button>
+    <div class="message">Not authorized</div>
+    <button on:click={goHome}>Return to homepage</button>
   </div> 

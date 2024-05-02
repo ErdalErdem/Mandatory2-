@@ -9,6 +9,7 @@
   import Home from "./pages/Home/Home.svelte";
   import Unauthorized from './pages/Auth/Auth.svelte';
   import RateLimitExceeded from './pages/RateLimit/RateLimit.svelte';
+    import User from './pages/User/User.svelte';
 
   onMount(async () => {
       await checkSession();
@@ -22,20 +23,16 @@
   <Header />
   <Router>
     <Route path="/" component={Home} />
-    <Route path="/User">
+
+    <Route path="/User" component={User}>
       <PrivateRouteGuard>
       </PrivateRouteGuard>
-    </Route>
-    <Route path="/Jobs">
-      <PrivateRouteGuard>
-      </PrivateRouteGuard>
-    </Route>
-    <Route path="/Contact">
-      <PrivateRouteGuard>
-      </PrivateRouteGuard>
+
     </Route>
     <Route path="/Unauthorized" component={Unauthorized} />
+
     <Route path="/RateLimitExceeded" component={RateLimitExceeded} />
   </Router>
+  
   <Footer />
 </main>

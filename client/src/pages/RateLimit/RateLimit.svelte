@@ -8,6 +8,6 @@
   
 
 <div class="unauthorized-container">
-    <div class="message">Oops! You have exceeded the ratelimit for using this website please try again later.</div>
+    <div class="message"> Ratelimit exceeded</div>
     <button on:click={goHome}>Go Back to Homepage</button>
   </div>

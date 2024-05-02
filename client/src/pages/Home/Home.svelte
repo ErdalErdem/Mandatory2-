@@ -1,3 +1,129 @@
+
+
+<main>
+    <div class="auth-container">
+        
+        {#if showLogin}
+        <script>
+            let email = '';
+            let password = '';
+            // Function to handle login
+            function handlePostLogin() {
+                console.log('Login Functionality Here');
+            }
+            // Function to toggle to the register view
+            function toggleRegister() {
+                console.log('Toggle to Register View');
+            }
+        </script>
+        
+        <form on:submit|preventDefault={handlePostLogin} class="auth-form">
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input type="email" bind:value={email} id="email" required />
+            </div>
+            <div class="form-control">
+                <label for="password">Password:</label>
+                <input
+                    type="password"
+                    bind:value={password}
+                    id="password"
+                    required
+                />
+            </div>
+            <button type="submit" class="submit-button">Login</button>
+            <div class="button-group">
+                <button type="button" on:click={toggleRegister}>Create Account</button>
+            </div>
+        </form>
+        
+        {/if}
+        {#if showRegister}
+            <form
+                on:submit|preventDefault={handlePostRegister}
+                class="auth-form"
+            >
+                <label for="name">Name:</label>
+                <input type="text" bind:value={name} id="name" required />
+
+                <label for="email">Email:</label>
+                <input type="email" bind:value={email} id="email" required />
+
+                <label for="password">Password:</label>
+                <input
+                    type="password"
+                    bind:value={password}
+                    id="password"
+                    required
+                />
+
+                <button type="submit" class="submit-button">Signup</button>
+            </form>
+        {/if}
+    </div>
+</main>
+
+<style>
+    .auth-form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        background-color: #ffffff;
+        color: #000;
+    }
+
+    .form-control {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+    }
+
+    .submit-button, .button-group button {
+        width: 100%;
+        padding: 10px 20px;
+        border: none;
+        color: rgb(255, 255, 255);
+        background-color: #007BFF;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        
+    }
+
+    .submit-button:hover, .button-group button:hover {
+        background-color: #0056b3;
+    }
+
+    .button-group {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-group button {
+        background-color: #28a745; /* Green for create account button */
+    }
+
+    .button-group button:hover {
+        background-color: #1e7e34;
+    }
+
+</style>
+
 <script>
     import { navigate } from "svelte-routing";
     import toast, { Toaster } from "svelte-french-toast";
@@ -90,11 +216,6 @@
         );
     }
 
-    function toggleLogin() {
-        showLogin = true;
-        showRegister = false;
-    }
-
     function toggleRegister() {
         showRegister = true;
         showLogin = false;
@@ -102,130 +223,3 @@
 </script>
 
 <Toaster />
-
-<main>
-    <div class="auth-container">
-        
-        {#if showLogin}
-        <script>
-            let email = '';
-            let password = '';
-            // Function to handle login
-            function handlePostLogin() {
-                console.log('Login Functionality Here');
-            }
-            // Function to toggle to the register view
-            function toggleRegister() {
-                console.log('Toggle to Register View');
-            }
-        </script>
-        
-        <form on:submit|preventDefault={handlePostLogin} class="auth-form">
-            <div class="form-control">
-                <label for="email">Email:</label>
-                <input type="email" bind:value={email} id="email" required />
-            </div>
-        
-            <div class="form-control">
-                <label for="password">Password:</label>
-                <input
-                    type="password"
-                    bind:value={password}
-                    id="password"
-                    required
-                />
-            </div>
-        
-            <button type="submit" class="submit-button">Login</button>
-        
-            <div class="button-group">
-                <button type="button" on:click={toggleRegister}>Create Account</button>
-            </div>
-        </form>
-        
-        {/if}
-        {#if showRegister}
-            <form
-                on:submit|preventDefault={handlePostRegister}
-                class="auth-form"
-            >
-                <label for="name">Name:</label>
-                <input type="text" bind:value={name} id="name" required />
-
-                <label for="email">Email:</label>
-                <input type="email" bind:value={email} id="email" required />
-
-                <label for="password">Password:</label>
-                <input
-                    type="password"
-                    bind:value={password}
-                    id="password"
-                    required
-                />
-
-                <button type="submit" class="submit-button">Signup</button>
-            </form>
-        {/if}
-    </div>
-</main>
-
-<style>
-    .auth-form {
-        max-width: 400px;
-        margin: 20px auto;
-        padding: 50px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 20px;
-        background-color: #ffffff;
-        color: #000;
-    }
-
-    .form-control {
-        margin-bottom: 15px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-
-    input[type="email"], input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ffffff;
-        border-radius: 4px;
-    }
-
-    .submit-button, .button-group button {
-        width: 100%;
-        padding: 10px 20px;
-        border: none;
-        color: rgb(255, 255, 255);
-        background-color: #007BFF;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-        
-    }
-
-    .submit-button:hover, .button-group button:hover {
-        background-color: #0056b3;
-    }
-
-    .button-group {
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .button-group button {
-        background-color: #28a745; /* Green for create account button */
-    }
-
-    .button-group button:hover {
-        background-color: #1e7e34;
-    }
-
-</style>
