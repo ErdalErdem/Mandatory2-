@@ -1,8 +1,3 @@
-<script>
-
-</script>
-
-
 <footer>
     <div class="footer-content">
       <p>© 2024 Mandatory2</p>
