@@ -156,7 +156,7 @@
         }
         const result = await response.json();
         if (!response.ok) {
-            throw new Error(result.message || "Failed to login");
+            throw new Error(result.message || "Login failed");
         }
         setTimeout(() => {
             navigate("/User");

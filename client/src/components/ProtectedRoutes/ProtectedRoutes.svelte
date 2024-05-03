@@ -1,9 +1,10 @@
 <script>
-    import { user } from "../../stores/user.js";
-    import checkSession from "../../util/checkSession.js";
     import { navigate } from "svelte-routing";
     import { onMount } from "svelte";
     import { writable } from "svelte/store";
+    import { user } from "../../stores/user.js";
+    import checkSession from "../../util/checkSession.js";
+   
 
     let isLoading = writable(true);
 
@@ -19,9 +20,9 @@
 </script>
 
 {#if $isLoading}
-    <div>Loading...</div>
+    <div>Loading</div>
 {:else if $user}
     <slot />
 {:else}
-    <p>Unauthorized</p>
+    <p>Unauthorized, you dont have access</p>
 {/if}

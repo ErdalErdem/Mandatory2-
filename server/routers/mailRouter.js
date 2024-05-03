@@ -1,6 +1,6 @@
-import "dotenv/config";
 import { Resend } from 'resend';
 import { Router } from 'express';
+import "dotenv/config";
 import { sanitizeHTML, sanitizeEmail } from '../util/sanitize.js';
 
 const router = Router();
@@ -22,9 +22,8 @@ router.post('/mails', async (req, res) => {
     });
 
     console.log('Email sent:', data);
-    res.status(200).json({ message: 'Email sent successfully' });
+    res.status(200).json({ message: 'Email sent' });
   } catch (error) {
-    console.error('Error sending email:', error);
     res.status(500).json({ message: 'Failed to send email' });
   }
 });

@@ -1,22 +1,4 @@
-<script>
-    import { navigate } from "svelte-routing";
-  
-    async function navigateTo(route) {
-      try {
-        const response = await fetch(`/${route}`);
-  
-        if (response.ok) {
-          navigate(`/${route}`);
-        } else if (response.status === 429) {
-          navigate('/RateLimitExceeded');
-        }
-      } catch (error) {
-        console.error('Navigation error:', error);
-      }
-    }
-  </script>
 
-  
 <header>
     <nav class="navbar">
 
@@ -40,8 +22,38 @@
       justify-content: space-between;
       align-items: center;
     }
- 
 
-  
- 
+    button {
+    background: linear-gradient(45deg, #6a3093, #a044ff);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+  button:hover {
+    background: linear-gradient(45deg, #7b1fa2, #ae52d4);
+}
+
+
   </style>
+
+<script>
+  import { navigate } from "svelte-routing";
+
+  async function navigateTo(route) {
+    try {
+      const response = await fetch(`/${route}`);
+
+      if (response.ok) {
+        navigate(`/${route}`);
+      } else if (response.status === 429) {
+        navigate('/RateLimitExceeded');
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+    }
+  }
+</script>
