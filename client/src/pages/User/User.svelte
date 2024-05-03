@@ -50,3 +50,6 @@ async function postLogout() {
     );
   }
 </script>
+
+
+<!-- Future stylling comming in newer releases -->

@@ -63,6 +63,8 @@
     </div>
 </main>
 
+<!-- Future stylling comming in newer releases -->
+
 <style>
     .auth-form {
         max-width: 400px;

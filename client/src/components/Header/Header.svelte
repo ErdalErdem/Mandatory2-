@@ -21,10 +21,10 @@
     <nav class="navbar">
 
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <button on:click={() => navigateTo('')}>Home</button>
+        <button on:click={() => navigateTo('User')}>User</button>
+        <button on:click={() => navigateTo('Next Release')}>Next Release</button>
+        <button on:click={() => navigateTo('Contact')}>Contact</button>
       </ul>
     </nav>
   </header>
@@ -40,17 +40,8 @@
       justify-content: space-between;
       align-items: center;
     }
-    .nav-links {
-      list-style: none;
-      display: flex;
-    }
-    .nav-links li {
-      padding: 0 15px;
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+ 
 
+  
+ 
   </style>
