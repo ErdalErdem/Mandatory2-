@@ -18,3 +18,5 @@ connection.connect(err => {
 });
 
 export default connection;
+
+// Not being used, because using sqlite.

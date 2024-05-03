@@ -1,6 +1,6 @@
-import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
+import 'dotenv/config';
 import { rateLimit } from 'express-rate-limit';
 import helmet from 'helmet';
 import cors from "cors";
@@ -13,8 +13,8 @@ app.use(cors({
 }));
 
 app.use(express.static('public'));
-app.use(express.json());
 app.use(helmet());
+app.use(express.json());
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -26,6 +26,7 @@ app.use(session({
 
 
 const authRateLimiter = rateLimit({
+
     windowMs: 10 * 60 * 1000, // 10min
     limit: 10,
     message: "Too many attempts, please try again later",
@@ -40,6 +41,7 @@ const limiter = rateLimit({
     standardHeaders: true,
     legacyHeaders: false,
 });
+
 app.use(limiter);
 
 import userRouter from './routers/userRouter.js';
