@@ -39,27 +39,26 @@
         
         {/if}
         {#if showRegister}
-            <form
-                on:submit|preventDefault={handlePostRegister}
-                class="auth-form"
-            >
+        <form on:submit|preventDefault={handlePostRegister} class="auth-form">
+            <div class="form-control">
                 <label for="name">Name:</label>
                 <input type="text" bind:value={name} id="name" required />
-
+            </div>
+        
+            <div class="form-control">
                 <label for="email">Email:</label>
                 <input type="email" bind:value={email} id="email" required />
-
+            </div>
+        
+            <div class="form-control">
                 <label for="password">Password:</label>
-                <input
-                    type="password"
-                    bind:value={password}
-                    id="password"
-                    required
-                />
-
-                <button type="submit" class="submit-button">Signup</button>
-            </form>
+                <input type="password" bind:value={password} id="password" required />
+            </div>
+        
+            <button type="submit" class="submit-button">Signup</button>
+        </form>
         {/if}
+        
     </div>
 </main>
 
@@ -86,19 +85,20 @@
         font-weight: bold;
     }
 
-    input[type="email"], input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ffffff;
-        border-radius: 4px;
-    }
+    input[type="email"], input[type="password"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Updated to be visible */
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding does not add to width */
+}
 
     .submit-button, .button-group button {
         width: 100%;
         padding: 10px 20px;
         border: none;
         color: rgb(255, 255, 255);
-        background-color: #007BFF;
+        background-color: #6a3093;
         border-radius: 10px;
         cursor: pointer;
         font-size: 16px;
@@ -107,7 +107,7 @@
     }
 
     .submit-button:hover, .button-group button:hover {
-        background-color: #0056b3;
+        background-color: #a044ff;
     }
 
     .button-group {
@@ -117,13 +117,24 @@
     }
 
     .button-group button {
-        background-color: #28a745; /* Green for create account button */
+        background-color: #2b01ff; /* Green for create account button */
     }
 
     .button-group button:hover {
-        background-color: #1e7e34;
+        background-color: #4238ff;
     }
 
+    label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333; /* Enhanced visibility */
+}
+
+/* Container for all form elements */
+.form-control {
+    margin-bottom: 15px;
+}
 </style>
 
 <script>
